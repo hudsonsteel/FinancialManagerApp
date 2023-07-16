@@ -1,4 +1,5 @@
 ﻿using FinancialManager.Validators;
+using FinancialManager.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using System;
@@ -11,30 +12,39 @@ namespace FinancialManager.ViewModels
     internal class IndividualsViewModel : BindableBase
     {
         private readonly IndividualsViewModelValidator validator;
+        private AdressView _adressView;
+        private ObservableCollection<ValidationResult> validation;
+        private string name;
+        private string nin;
+        private string phone;
+        private DateTime? dateOfBirth;
+        private string email;
+        private string gender;
+        private ObservableCollection<string> nationalities;
+        private string nationality;
 
         public IndividualsViewModel()
         {
             Validation = new ObservableCollection<ValidationResult>();
             SaveCommand = new DelegateCommand(Save, CanSave);
+            AdressView = new AdressView(SaveCommand);
             validator = new IndividualsViewModelValidator();
             Nationalities = new ObservableCollection<string>(GetNationalities());
-
         }
 
-
-        private void UpdateValidation(ValidationResult result)
+        public AdressView AdressView
         {
-            Validation = new ObservableCollection<ValidationResult> { result };
+            get { return _adressView; }
+            set { SetProperty(ref _adressView, value); }
         }
 
-        private ObservableCollection<ValidationResult> validation;
+
         public ObservableCollection<ValidationResult> Validation
         {
             get { return validation; }
             set { SetProperty(ref validation, value); }
         }
 
-        private string name;
         public string Name
         {
             get { return name; }
@@ -44,47 +54,39 @@ namespace FinancialManager.ViewModels
                 SaveCommand.RaiseCanExecuteChanged();
             }
         }
-        private string nin;
         public string NIN
         {
             get { return nin; }
             set { SetProperty(ref nin, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
-        private string phone;
         public string Phone
         {
             get { return phone; }
             set { SetProperty(ref phone, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
 
-        private string email;
         public string Email
         {
             get { return email; }
             set { SetProperty(ref email, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
 
-        private DateTime? dateOfBirth;
         public DateTime? DateOfBirth
         {
             get { return dateOfBirth; }
             set { SetProperty(ref dateOfBirth, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
-
-        private string gender;
         public string Gender
         {
             get { return gender; }
             set { SetProperty(ref gender, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
-        private ObservableCollection<string> nationalities;
         public ObservableCollection<string> Nationalities
         {
             get { return nationalities; }
             set { SetProperty(ref nationalities, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
 
-        private string nationality;
         public string Nationality
         {
             get { return nationality; }
@@ -156,8 +158,10 @@ namespace FinancialManager.ViewModels
         {
             Validation = new();
             ValidationResult result = validator.Validate(this);
+            AdressView.ViewModel.AnalizeObject();
             Validation.Add(result);
-            return result.IsValid;
+            Validation.Add(AdressView.ViewModel.ValidationResult);
+            return result.IsValid && AdressView.ViewModel.ValidationResult.IsValid;
         }
         private void Save()
         {

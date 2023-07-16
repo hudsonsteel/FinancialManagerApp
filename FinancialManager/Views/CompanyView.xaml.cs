@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using FinancialManager.ViewModels;
+using System.Windows.Controls;
 
 namespace FinancialManager.Views
 {
@@ -10,6 +11,7 @@ namespace FinancialManager.Views
         public CompanyView()
         {
             InitializeComponent();
+            DataContext = new CompanyViewModel();
         }
     }
 }

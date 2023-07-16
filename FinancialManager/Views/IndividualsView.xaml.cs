@@ -10,9 +10,8 @@ namespace FinancialManager.Views
     {
         public IndividualsView()
         {
-            DataContext = new IndividualsViewModel();
             InitializeComponent();
+            DataContext = new IndividualsViewModel();
         }
-
     }
 }

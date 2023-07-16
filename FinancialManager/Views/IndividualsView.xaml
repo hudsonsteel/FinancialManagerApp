@@ -145,6 +145,8 @@
             </ComboBox>
         </StackPanel>
 
+        <ContentControl Grid.Row="6" Grid.Column="2" Width="auto" Content="{Binding AdressView}" />
+
         <Button Content="Save" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Right" Margin="0,20,0,30" Command="{Binding SaveCommand}">
             <Button.Resources>
                 <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
@@ -153,5 +155,6 @@
                 </Style>
             </Button.Resources>
         </Button>
+        
     </Grid>
 </UserControl>
