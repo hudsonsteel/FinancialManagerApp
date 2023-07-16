@@ -3,11 +3,11 @@
 namespace FinancialManager.Views
 {
     /// <summary>
-    /// Interaction logic for BankBalancesView.xaml
+    /// Interaction logic for AddTransactionView.xaml
     /// </summary>
-    public partial class BankBalancesView : UserControl
+    public partial class AddTransactionView : UserControl
     {
-        public BankBalancesView()
+        public AddTransactionView()
         {
             InitializeComponent();
         }

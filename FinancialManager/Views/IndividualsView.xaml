@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:FinancialManager.Views"
              xmlns:prism="http://prismlibrary.com/"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fluent="clr-namespace:FluentValidation.Results;assembly=FluentValidation"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -15,6 +14,7 @@
              TextOptions.TextFormattingMode="Ideal" FontFamily="Segoe UI">
 
     <UserControl.Resources>
+       
         <Style TargetType="TextBox">
             <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
             <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}"/>
@@ -63,9 +63,9 @@
         </Style>
     </UserControl.Resources>
 
-    <Grid Margin="30px" Background="White">
+    <Grid Margin="10 10 10 30" Background="White" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -73,7 +73,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -87,26 +87,26 @@
                  Grid.Row="1" Grid.Column="2" MaxLength="60"
                  materialDesign:HintAssist.Hint="Name"
                  Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 HorizontalAlignment="Left" Width="600px"
+                 HorizontalAlignment="Left" Width="800px"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
 
         <TextBox VerticalAlignment="Center"   Margin="0 0 0 10"
                  materialDesign:HintAssist.Hint="NIN"
                  Text="{Binding NIN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 MaxLength="9" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="600px"/>
+                 MaxLength="9" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="800px"/>
 
         <TextBox VerticalAlignment="Center"  Margin="0 0 0 10"
                  materialDesign:HintAssist.Hint="Phone"
                  Text="{Binding Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 MaxLength="18" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="600px"/>
+                 MaxLength="18" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" Width="800px"/>
 
         <TextBox VerticalAlignment="Center"  Margin="0 0 0 10"
                  materialDesign:HintAssist.Hint="Email"
                  Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 Grid.Row="4" MaxLength="55" Grid.Column="2" HorizontalAlignment="Left" Width="600px"/>
+                 Grid.Row="4" MaxLength="55" Grid.Column="2" HorizontalAlignment="Left" Width="800px"/>
 
         <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="0 0 0 10">
             <DatePicker materialDesign:HintAssist.Hint="Date of Birth"
@@ -148,8 +148,6 @@
         <Button Content="Save" Grid.Row="9" Grid.Column="2" HorizontalAlignment="Right" Margin="0,20,0,30" Command="{Binding SaveCommand}">
             <Button.Resources>
                 <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-                    <Setter Property="Background" Value="{StaticResource AppAccentBrush}" />
-                    <Setter Property="Foreground" Value="White" />
                     <Setter Property="FontSize" Value="16" />
                     <Setter Property="Margin" Value="10" />
                 </Style>

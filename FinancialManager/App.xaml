@@ -26,11 +26,11 @@
                 <Setter Property="Margin" Value="10" />
             </Style>
 
-            <Style TargetType="TextBlock">
-                <Setter Property="Foreground" Value="White" />
+            <!--<Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="#774ca8" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="Margin" Value="10" />
-            </Style>
+            </Style>-->
 
             <Style TargetType="TextBox">
                 <Setter Property="Background" Value="#774ca8" />

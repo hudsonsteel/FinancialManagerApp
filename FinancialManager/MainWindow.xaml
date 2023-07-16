@@ -11,28 +11,38 @@
         AllowsTransparency="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Purple.xaml" />
+                <ResourceDictionary Source="Templates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+            <Style TargetType="MenuItem">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+
+        </ResourceDictionary>
+    </Window.Resources>
     <!--// Background Grid //-->
-    <Grid Background="{DynamicResource PrimaryHueMidForegroundBrush}">
-
-        <TextBlock Text="D E S I G N   T H E   I N T E R F A C E"
-                   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
-                   FontFamily="Fonts/#Orbitron Medium"
-                   FontSize="10"
-                   VerticalAlignment="Bottom"
-                   HorizontalAlignment="Right"
-                   Margin="0,0,15,10" />
-
-        <Border Background="{DynamicResource PrimaryHueDarkBrush}"
-                Height="15"
-                CornerRadius="3,0,0,3"
-                Width="5"
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right"
-                Margin="0,0,0,8" />
+    <Grid Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="230"></ColumnDefinition>
+            <ColumnDefinition  Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
         <!--// Menu Panel //-->
 
-        <StackPanel Background="{DynamicResource PrimaryHueMidBrush}"
+        <StackPanel Grid.Column="0"  Background="{DynamicResource PrimaryHueMidBrush}"
                     Width="230"
                     Orientation="Vertical"
                     HorizontalAlignment="Left">
@@ -61,7 +71,7 @@
 
             <!--// Main Menu //-->
 
-            <Menu Height="450" Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+            <Menu Height="450" Foreground="White"
                   Background="Transparent"
                   Margin="0,40,0,0">
 
@@ -77,7 +87,7 @@
 
                 <!--// Main Menu - Home //-->
 
-                <MenuItem Header="Home"  
+                <MenuItem Header="Home"   Foreground="White"
                           Template="{StaticResource Menu_Template}"
                           Command="{Binding LoadHomeCommand}">
                     <MenuItem.Icon >
@@ -86,7 +96,7 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
                 </MenuItem>
 
@@ -94,7 +104,7 @@
                 
                 <!--// Main Menu - Contacts //-->
 
-                <MenuItem Header="Contacts"
+                <MenuItem Header="Contacts" Foreground="White"
                           Template="{StaticResource Menu_SubMenu_Template}">
 
                     <MenuItem.Icon >
@@ -103,11 +113,12 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
 
-                    <MenuItem Header="Individual"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem Header="Individual" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadIndividualCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="PersonAdd"
@@ -115,12 +126,13 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White"/>
                         </MenuItem.Icon>
 
                     </MenuItem>
-                    <MenuItem Header="Company"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem Header="Company" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadCompanyCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="Company"
@@ -128,7 +140,7 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
@@ -136,7 +148,7 @@
 
                 <!--// Main Menu - Financial //-->
 
-                <MenuItem Header="Financial"
+                <MenuItem Header="Financial" Foreground="White"
                           Template="{StaticResource Menu_SubMenu_Template}">
 
                     <MenuItem.Icon >
@@ -145,11 +157,12 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
 
-                    <MenuItem Header="Transaction"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem Header="Transaction" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadAddTransationCommand}">>
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="Add" 
@@ -157,12 +170,13 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                         </MenuItem.Icon>
 
-                    </MenuItem> 
-                    <MenuItem Header="Details"
-                              Template="{StaticResource Item_Template}">
+                    </MenuItem>
+                    <MenuItem Header="Details" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadDetailsTransationCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="Details"
@@ -170,7 +184,7 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                         </MenuItem.Icon>
 
                     </MenuItem>
@@ -178,7 +192,7 @@
 
                 <!--// Main Menu - Financial //-->
 
-                <MenuItem Header="Bank Balances"
+                <MenuItem Header="Bank Balances" Foreground="White"
                           Template="{StaticResource Menu_SubMenu_Template}">
 
                     <MenuItem.Icon >
@@ -187,11 +201,12 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
 
-                    <MenuItem Header="Add"
-                              Template="{StaticResource Item_Template}">
+                    <MenuItem Header="New Bank" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadAddBankBalanceCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="BankAdd" 
@@ -199,12 +214,13 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                         </MenuItem.Icon>
 
-                    </MenuItem> 
-                    <MenuItem Header="Details"
-                              Template="{StaticResource Item_Template}">
+                    </MenuItem>
+                    <MenuItem Header="Details" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadDetailsBankBalanceCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="BankCheck"
@@ -212,15 +228,16 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                         </MenuItem.Icon>
 
                     </MenuItem>
 
                 </MenuItem>
 
-                <MenuItem Header="Dashboard"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem Header="Dashboard" Foreground="White"
+                          Template="{StaticResource Menu_Template}"
+                          Command="{Binding LoadDashboardCommand}">
 
                     <MenuItem.Icon >
                         <materialDesign:PackIcon Kind="ViewDashboard" 
@@ -228,15 +245,16 @@
                                  Height="24"
                                  Margin="09,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
 
                 </MenuItem>
 
                 <!--// Main Menu - About //-->
 
-                <MenuItem Header="About"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem Header="About" Foreground="White"
+                          Template="{StaticResource Menu_Template}"
+                          Command="{Binding LoadAboutCommand}">
 
                     <MenuItem.Icon >
                         <materialDesign:PackIcon Kind="AboutOutline" 
@@ -244,30 +262,47 @@
                                  Height="24"
                                  Margin="08,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
 
                 </MenuItem>
 
                 <!--// Main Menu - Exit //-->
 
-                <MenuItem Header="Exit"
-                          Template="{StaticResource Menu_Template}">
+                <MenuItem Header="Exit" Foreground="White" 
+                          Template="{StaticResource Menu_Template}"
+                          Command="{Binding LoadExitCommand}">
                     <MenuItem.Icon >
                         <materialDesign:PackIcon Kind="ExitToApp" 
                                  Width="24"
                                  Height="24"
                                  Margin="08,0,5,0"
                                  VerticalAlignment="Center"
-                                 Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                                 Foreground="White" />
                     </MenuItem.Icon>
                 </MenuItem>
             </Menu>
 
         </StackPanel>
 
-        <ContentControl Content="{Binding HomeView}" />
-        <ContentControl Content="{Binding ContactsView}" />
+        <ContentControl Grid.Column="1" Width="auto" Content="{Binding CurrentView}" />
 
+        <Border Grid.Column="1" Grid.Row="1"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Background="{DynamicResource PrimaryHueDarkBrush}"
+                Height="15"
+                CornerRadius="3,0,0,3"
+                Width="140"
+                                Margin="0,0,0,8" >
+            <TextBlock  Text="{Binding CurrentTime}"  
+                   Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                   FontFamily="Fonts/#Orbitron Medium"
+                   FontSize="12"
+                   VerticalAlignment="Bottom"
+                   HorizontalAlignment="Right"
+                   Margin="0,0, 10,0" />
+        </Border>
+        
     </Grid>
 </Window>

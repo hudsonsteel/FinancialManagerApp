@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
     <!-- Menu with SubMenu Template -->
 
@@ -117,10 +118,11 @@
                                   Height="35"
                                   Width="35"
                                   Margin="10,0,0,0"
+                                  TextBlock.Foreground="White"
                                   VerticalAlignment="Center" />
-                <ContentPresenter ContentSource="Header"
+                <ContentPresenter ContentSource="Header" 
                                   Grid.Column="2"
-                                  TextBlock.Foreground="{DynamicResource PrimaryHueMidForegroundBrush}"
+                                  TextBlock.Foreground="White"
                                   TextBlock.FontFamily="Fonts/#Roboto Light"
                                   TextBlock.FontSize="20"
                                   HorizontalAlignment="Left"
@@ -209,15 +211,56 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <!-- Maximize / Minimize App Button Style -->
-
-    <ImageBrush x:Key="max_def"
-                ImageSource="Assets/max_def.png"
-                Stretch="None" />
-
-    <ImageBrush x:Key="max_mo"
-                ImageSource="Assets/max_mo.png"
-                Stretch="None" />
+    <Style x:Key="CloseBtnStyle" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="35" />
+        <Setter Property="Width" Value="35" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,20,18,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border"
+                        BorderThickness="0"
+                        Background="{StaticResource close_def}" />
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background"
+                                TargetName="border"
+                                Value="{StaticResource close_mo}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background"
+                                TargetName="border"
+                                Value="{StaticResource close_mo}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    <ControlTemplate.Resources>
+                        <VisualBrush x:Key="close_def" Stretch="None">
+                            <VisualBrush.Visual>
+                                <materialDesign:PackIcon Kind="Close"
+                                                     Width="24"
+                                                     Height="24"
+                                                     Margin="09,0,5,0"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                        <VisualBrush x:Key="close_mo" Stretch="None">
+                            <VisualBrush.Visual>
+                                <materialDesign:PackIcon Kind="CloseBox"
+                                                     Width="24"
+                                                     Height="24"
+                                                     Margin="09,0,5,0"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </ControlTemplate.Resources>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
     <Style x:Key="MaxBtnStyle" TargetType="{x:Type Button}">
         <Setter Property="Height" Value="35" />
@@ -229,62 +272,46 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="border"
-                            BorderThickness="0"
-                            Background="{StaticResource max_def}" />
+                        BorderThickness="0"
+                        Background="{StaticResource max_def}" />
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource max_mo}" />
+                                TargetName="border"
+                                Value="{StaticResource max_mo}" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource max_mo}" />
+                                TargetName="border"
+                                Value="{StaticResource max_mo}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
+                    <ControlTemplate.Resources>
+                        <VisualBrush x:Key="max_def" Stretch="None">
+                            <VisualBrush.Visual>
+                                <materialDesign:PackIcon Kind="Maximize"
+                                                     Width="24"
+                                                     Height="24"
+                                                     Margin="09,0,5,0"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                        <VisualBrush x:Key="max_mo" Stretch="None">
+                            <VisualBrush.Visual>
+                                <materialDesign:PackIcon Kind="Maximize"
+                                                     Width="24"
+                                                     Height="24"
+                                                     Margin="09,0,5,0"
+                                                     VerticalAlignment="Center"
+                                                     Foreground="{DynamicResource PrimaryHueMidForegroundBrush}" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </ControlTemplate.Resources>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <!-- Close App Button Style -->
-
-    <ImageBrush x:Key="close_def"
-                ImageSource="Assets/shutdown_def.png"
-                Stretch="None" />
-
-    <ImageBrush x:Key="close_mo"
-                ImageSource="Assets/shutdown_mo.png"
-                Stretch="None" />
-
-    <Style x:Key="CloseBtnStyle" TargetType="{x:Type Button}">
-        <Setter Property="Height" Value="35" />
-        <Setter Property="Width" Value="35" />
-        <Setter Property="HorizontalAlignment" Value="Right" />
-        <Setter Property="VerticalAlignment" Value="Top" />
-        <Setter Property="Margin" Value="0,20,18,0" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="border"
-                            BorderThickness="0"
-                            Background="{StaticResource close_def}" />
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource close_mo}" />
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="{StaticResource close_mo}" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 
 </ResourceDictionary>
