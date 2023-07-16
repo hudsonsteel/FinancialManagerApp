@@ -6,39 +6,32 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
+            <!--<ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-
-
-
-                <!-- Importa os estilos para os controles -->
             </ResourceDictionary.MergedDictionaries>
 
-            <!-- Define your custom styles and resources here -->
-            <!--<Style TargetType="Button">
-                <Setter Property="Background" Value="DeepPurple" />
-                <Setter Property="Foreground" Value="White" />
+            --><!-- Define your custom styles and resources here --><!--
+            <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+                <Setter Property="Background" Value="{StaticResource AppAccentBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource AppForegroundBrush}" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="Margin" Value="10" />
-            </Style>-->
-            <!-- Define as cores personalizadas -->
+            </Style>
 
+            --><!-- Define as cores personalizadas --><!--
             <SolidColorBrush x:Key="PrimaryHueLightBrush" Color="#FFDBE9FF" />
             <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="#FF000000" />
             <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="#FF8696B1" />
             <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="#FFFFFFFF" />
             <SolidColorBrush x:Key="PrimaryHueDarkBrush" Color="#FF6F7B8B" />
             <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="#FFFFFFFF" />
-            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#FF800080" />
+            <SolidColorBrush x:Key="SecondaryAccentBrush" Color="#8B4513" />
             <SolidColorBrush x:Key="SecondaryAccentForegroundBrush" Color="#FFFFFFFF" />
 
-            <SolidColorBrush x:Key="AppBackgroundBrush" Color="#FDF5E6" />
-            <!-- MistyRose -->
-            <SolidColorBrush x:Key="AppForegroundBrush" Color="#333333" />
-            <!-- Cor preta -->
-            <SolidColorBrush x:Key="AppAccentBrush" Color="#8B4513" />
-            <!-- SaddleBrown -->
+            <SolidColorBrush x:Key="AppBackgroundBrush" Color="NavajoWhite" />
+            <SolidColorBrush x:Key="AppForegroundBrush" Color="{StaticResource PrimaryHueMidBrush}" />
+            <SolidColorBrush x:Key="AppAccentBrush" Color="{StaticResource SecondaryAccentBrush}" />-->
 
         </ResourceDictionary>
     </Application.Resources>

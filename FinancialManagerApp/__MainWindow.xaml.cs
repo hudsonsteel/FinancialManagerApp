@@ -1,15 +1,14 @@
 ﻿using System.Windows;
 
-namespace ConnectionExternalMg.View
+namespace FinancialManagerApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
+            //DataContext = new MainWindowViewModel(this);
             InitializeComponent();
         }
     }
+
 }
