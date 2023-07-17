@@ -27,6 +27,7 @@ namespace FinancialManager.ViewModels
             LoadIndividualCommand = new DelegateCommand(LoadIndividual);
             LoadCompanyCommand = new DelegateCommand(LoadCompany);
             LoadAddTransationCommand = new DelegateCommand(LoadAddTransation);
+            LoadDetailsIndividualCommand = new DelegateCommand(LoadIndividualDetails);
             LoadDetailsTransationCommand = new DelegateCommand(LoadDetailsTransation);
             LoadAddBankBalanceCommand = new DelegateCommand(LoadAddBankBalance);
             LoadDetailsBankBalanceCommand = new DelegateCommand(LoadDetailsBankBalance);
@@ -108,6 +109,7 @@ namespace FinancialManager.ViewModels
         public DelegateCommand LoadIndividualCommand { get; }
         public DelegateCommand LoadCompanyCommand { get; }
         public DelegateCommand LoadAddTransationCommand { get; }
+        public DelegateCommand LoadDetailsIndividualCommand { get; }
         public DelegateCommand LoadDetailsTransationCommand { get; }
         public DelegateCommand LoadAddBankBalanceCommand { get; }
         public DelegateCommand LoadDetailsBankBalanceCommand { get; }
@@ -122,6 +124,10 @@ namespace FinancialManager.ViewModels
         private void LoadIndividual()
         {
             CurrentView = new IndividualsView();
+        }
+        private void LoadIndividualDetails()
+        {
+            CurrentView = new IndividualDetailsView();
         }
 
         private void LoadCompany()

@@ -134,9 +134,9 @@ namespace FinancialManager.ViewModels
 
         private void Save()
         {
+
             // Implement the logic to save the data to the database here
             // Use the properties Name, Website, Phone, Email, FoundedDate, Employees, and Industry
-
             // Example:
             // var company = new Company
             // {
@@ -150,6 +150,7 @@ namespace FinancialManager.ViewModels
             // };
             //
             // // Code to save the company object to the database
+
         }
     }
 }

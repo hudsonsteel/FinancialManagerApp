@@ -165,10 +165,9 @@ namespace FinancialManager.ViewModels
         }
         private void Save()
         {
-            // Aqui você pode implementar a lógica para salvar os dados no banco de dados
-            // Utilize as propriedades Name, NIN, Phone, Email, DateOfBirth, Gender e Nationality
-
-            // Exemplo:
+            // Here you can implement the logic to save the data in the database
+            // Use the properties Name, NIN, Phone, Email, DateOfBirth, Gender, and Nationality
+            // Example:
             // var individual = new Individual
             // {
             //     Name = Name,
@@ -180,7 +179,8 @@ namespace FinancialManager.ViewModels
             //     Nationality = Nationality
             // };
             //
-            // // Código para salvar o objeto individual no banco de dados
+            // // Code to save the individual object in the database
+
         }
 
     }

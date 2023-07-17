@@ -9,6 +9,11 @@ namespace FinancialManager.Views
     /// </summary>
     public partial class AdressView : UserControl
     {
+        public AdressView()
+        {
+            InitializeComponent();
+            DataContext = new AdressViewModel();
+        }
         public AdressView(DelegateCommand saveCommand)
         {
             InitializeComponent();

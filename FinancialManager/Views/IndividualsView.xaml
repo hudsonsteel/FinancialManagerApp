@@ -8,6 +8,8 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:fluent="clr-namespace:FluentValidation.Results;assembly=FluentValidation"
+             xmlns:controls="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             Background="{DynamicResource MaterialDesignPaper}"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="14"
@@ -75,13 +77,32 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
+        
+      
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="auto" ></ColumnDefinition>
             <ColumnDefinition Width="auto" ></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+
+        <StackPanel Margin="0 20 0 0" Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <controls:PackIcon Grid.Row="0" Grid.Column="0"  Kind="AccountPlus" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="16"/>
+                <TextBlock  Grid.Row="0" Grid.Column="1" Text="Add Individuals" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+                <Border  Grid.RowSpan="1" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="Purple" Margin="0 5"/>
+            </Grid>
+        </StackPanel>
+
+
 
         <TextBox VerticalAlignment="Center" Margin="0 0 0 10"
                  Grid.Row="1" Grid.Column="2" MaxLength="60"

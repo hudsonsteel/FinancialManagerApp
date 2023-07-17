@@ -130,6 +130,22 @@
                         </MenuItem.Icon>
 
                     </MenuItem>
+                    <MenuItem Header="Details" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadDetailsIndividualCommand}">
+
+                        <MenuItem.Icon >
+                            <materialDesign:PackIcon Kind="PersonCardDetails"
+                                 Width="24"
+                                 Height="24"
+                                 Margin="09,0,5,0"
+                                 VerticalAlignment="Center"
+                                 Foreground="White"/>
+                        </MenuItem.Icon>
+
+                    </MenuItem>
+                    
+                    
                     <MenuItem Header="Company" Foreground="White"
                               Template="{StaticResource Item_Template}"
                               Command="{Binding LoadCompanyCommand}">
@@ -142,6 +158,21 @@
                                  VerticalAlignment="Center"
                                  Foreground="White" />
                         </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="Details" Foreground="White"
+                              Template="{StaticResource Item_Template}"
+                              Command="{Binding LoadDetailsCompanyCommand}">
+
+                        <MenuItem.Icon >
+                            <materialDesign:PackIcon Kind="OfficeBuildingSettings"
+                                 Width="24"
+                                 Height="24"
+                                 Margin="09,0,5,0"
+                                 VerticalAlignment="Center"
+                                 Foreground="White"/>
+                        </MenuItem.Icon>
+
                     </MenuItem>
                 </MenuItem>
                 <!--// Main Menu - Contacts //-->
@@ -162,7 +193,7 @@
 
                     <MenuItem Header="Transaction" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadAddTransationCommand}">>
+                              Command="{Binding LoadAddTransationCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="Add" 
@@ -174,6 +205,8 @@
                         </MenuItem.Icon>
 
                     </MenuItem>
+                    
+                    
                     <MenuItem Header="Details" Foreground="White"
                               Template="{StaticResource Item_Template}"
                               Command="{Binding LoadDetailsTransationCommand}">
