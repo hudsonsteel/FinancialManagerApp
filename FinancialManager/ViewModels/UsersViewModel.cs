@@ -9,7 +9,7 @@ using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace FinancialManager.ViewModels
 {
-    internal class IndividualsViewModel : BindableBase
+    internal class UsersViewModel : BindableBase
     {
         private readonly IndividualsViewModelValidator validator;
         private AdressView _adressView;
@@ -23,7 +23,7 @@ namespace FinancialManager.ViewModels
         private ObservableCollection<string> nationalities;
         private string nationality;
 
-        public IndividualsViewModel()
+        public UsersViewModel()
         {
             Validation = new ObservableCollection<ValidationResult>();
             SaveCommand = new DelegateCommand(Save, CanSave);

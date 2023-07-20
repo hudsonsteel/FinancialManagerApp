@@ -5,9 +5,9 @@ namespace FinancialManager.Views
     /// <summary>
     /// Interaction logic for DetailsTransactionView.xaml
     /// </summary>
-    public partial class DetailsTransactionView : UserControl
+    public partial class TransactionDetailsView : UserControl
     {
-        public DetailsTransactionView()
+        public TransactionDetailsView()
         {
             InitializeComponent();
         }

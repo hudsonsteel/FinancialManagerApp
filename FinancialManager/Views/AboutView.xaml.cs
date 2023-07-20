@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace FinancialManager.Views
 {
     /// <summary>
-    /// Interaction logic for DetailsBankBalanceView.xaml
+    /// Interaction logic for AboutView.xaml
     /// </summary>
-    public partial class DetailsBankBalanceView : UserControl
+    public partial class AboutView : UserControl
     {
-        public DetailsBankBalanceView()
+        public AboutView()
         {
             InitializeComponent();
         }

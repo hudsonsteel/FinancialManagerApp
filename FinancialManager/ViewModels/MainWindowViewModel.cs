@@ -12,7 +12,7 @@ namespace FinancialManager.ViewModels
     {
         private UserControl _homeView;
         private UserControl _currentView;
-        private UserControl _individualView;
+        private UserControl _userView;
         private UserControl _companyView;
         private UserControl _addTransactionView;
         private UserControl _detailsTransactionView;
@@ -24,16 +24,21 @@ namespace FinancialManager.ViewModels
         {
             GetTime();
             LoadHomeCommand = new DelegateCommand(LoadHome);
-            LoadIndividualCommand = new DelegateCommand(LoadIndividual);
+            LoadUserCommand = new DelegateCommand(LoadUser);
+            LoadUserDetailsCommand = new DelegateCommand(LoadUserDetails);
             LoadCompanyCommand = new DelegateCommand(LoadCompany);
+            LoadCompanyDetailsCommand = new DelegateCommand(LoadCompanyDetails);
             LoadAddTransationCommand = new DelegateCommand(LoadAddTransation);
-            LoadDetailsIndividualCommand = new DelegateCommand(LoadIndividualDetails);
-            LoadDetailsTransationCommand = new DelegateCommand(LoadDetailsTransation);
+            LoadTransationDetailsCommand = new DelegateCommand(LoadDetailsTransation);
             LoadAddBankBalanceCommand = new DelegateCommand(LoadAddBankBalance);
-            LoadDetailsBankBalanceCommand = new DelegateCommand(LoadDetailsBankBalance);
+            LoadBankBalanceDetailsCommand = new DelegateCommand(LoadDetailsBankBalance);
             LoadDashboardCommand = new DelegateCommand(LoadDashboard);
+            LoadAboutCommand = new DelegateCommand(LoadAbout);
             LoadExitCommand = new DelegateCommand(LoadExit);
         }
+
+
+
         private void GetTime()
         {
             // Start a timer to update the CurrentTime property every second
@@ -61,10 +66,10 @@ namespace FinancialManager.ViewModels
         }
 
 
-        public UserControl IndividualView
+        public UserControl UserView
         {
-            get { return _individualView; }
-            set { SetProperty(ref _individualView, value); }
+            get { return _userView; }
+            set { SetProperty(ref _userView, value); }
         }
 
         public UserControl CompanyView
@@ -106,14 +111,16 @@ namespace FinancialManager.ViewModels
 
 
         public DelegateCommand LoadHomeCommand { get; }
-        public DelegateCommand LoadIndividualCommand { get; }
+        public DelegateCommand LoadUserCommand { get; }
         public DelegateCommand LoadCompanyCommand { get; }
+        public DelegateCommand LoadCompanyDetailsCommand { get; }
         public DelegateCommand LoadAddTransationCommand { get; }
-        public DelegateCommand LoadDetailsIndividualCommand { get; }
-        public DelegateCommand LoadDetailsTransationCommand { get; }
+        public DelegateCommand LoadUserDetailsCommand { get; }
+        public DelegateCommand LoadTransationDetailsCommand { get; }
         public DelegateCommand LoadAddBankBalanceCommand { get; }
-        public DelegateCommand LoadDetailsBankBalanceCommand { get; }
+        public DelegateCommand LoadBankBalanceDetailsCommand { get; }
         public DelegateCommand LoadDashboardCommand { get; }
+        public DelegateCommand LoadAboutCommand { get; }
         public DelegateCommand LoadExitCommand { get; }
 
         private void LoadHome()
@@ -121,13 +128,13 @@ namespace FinancialManager.ViewModels
             CurrentView = new HomeView();
         }
 
-        private void LoadIndividual()
+        private void LoadUser()
         {
-            CurrentView = new IndividualsView();
+            CurrentView = new UserView();
         }
-        private void LoadIndividualDetails()
+        private void LoadUserDetails()
         {
-            CurrentView = new IndividualDetailsView();
+            CurrentView = new UserDetailsView();
         }
 
         private void LoadCompany()
@@ -142,7 +149,7 @@ namespace FinancialManager.ViewModels
 
         private void LoadDetailsTransation()
         {
-            CurrentView = new DetailsTransactionView();
+            CurrentView = new TransactionDetailsView();
         }
 
         private void LoadAddBankBalance()
@@ -152,14 +159,21 @@ namespace FinancialManager.ViewModels
 
         private void LoadDetailsBankBalance()
         {
-            CurrentView = new DetailsBankBalanceView();
+            CurrentView = new BankBalanceDetailsView();
         }
 
         private void LoadDashboard()
         {
             CurrentView = new DashboardView();
         }
-
+        private void LoadCompanyDetails()
+        {
+            CurrentView = new CompanyDetailsView();
+        }
+        private void LoadAbout()
+        {
+            CurrentView = new AboutView();
+        }
         private void LoadExit()
         {
             Application.Current.Shutdown();

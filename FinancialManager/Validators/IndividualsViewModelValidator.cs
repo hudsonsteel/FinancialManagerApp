@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace FinancialManager.Validators
 {
-    internal class IndividualsViewModelValidator : AbstractValidator<IndividualsViewModel>
+    internal class IndividualsViewModelValidator : AbstractValidator<UsersViewModel>
     {
         public IndividualsViewModelValidator()
         {

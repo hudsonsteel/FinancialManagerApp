@@ -7,7 +7,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200"
+        Title="MainWindow" Height="800" Width="1500"
         AllowsTransparency="True"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen">
@@ -116,9 +116,9 @@
                                  Foreground="White" />
                     </MenuItem.Icon>
 
-                    <MenuItem Header="Individual" Foreground="White"
+                    <MenuItem Header="User" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadIndividualCommand}">
+                              Command="{Binding LoadUserCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="PersonAdd"
@@ -132,7 +132,7 @@
                     </MenuItem>
                     <MenuItem Header="Details" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadDetailsIndividualCommand}">
+                              Command="{Binding LoadUserDetailsCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="PersonCardDetails"
@@ -162,7 +162,7 @@
 
                     <MenuItem Header="Details" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadDetailsCompanyCommand}">
+                              Command="{Binding LoadCompanyDetailsCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="OfficeBuildingSettings"
@@ -209,7 +209,7 @@
                     
                     <MenuItem Header="Details" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadDetailsTransationCommand}">
+                              Command="{Binding LoadTransationDetailsCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="Details"
@@ -253,7 +253,7 @@
                     </MenuItem>
                     <MenuItem Header="Details" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadDetailsBankBalanceCommand}">
+                              Command="{Binding LoadBankBalanceDetailsCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="BankCheck"

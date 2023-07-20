@@ -4,14 +4,14 @@ using System.Windows.Controls;
 namespace FinancialManager.Views
 {
     /// <summary>
-    /// Interaction logic for IndividualsView.xaml
+    /// Interaction logic for UserDetailsView.xaml
     /// </summary>
-    public partial class IndividualsView : UserControl
+    public partial class UserDetailsView : UserControl
     {
-        public IndividualsView()
+        public UserDetailsView()
         {
             InitializeComponent();
-            DataContext = new IndividualsViewModel();
+            DataContext = new UserDetailsViewModel();
         }
     }
 }

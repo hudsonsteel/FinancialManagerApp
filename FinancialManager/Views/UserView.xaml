@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="FinancialManager.Views.IndividualsView"
+﻿<UserControl x:Class="FinancialManager.Views.UserView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -97,7 +97,7 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <controls:PackIcon Grid.Row="0" Grid.Column="0"  Kind="AccountPlus" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="16"/>
-                <TextBlock  Grid.Row="0" Grid.Column="1" Text="Add Individuals" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+                <TextBlock  Grid.Row="0" Grid.Column="1" Text="Add User" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"/>
                 <Border  Grid.RowSpan="1" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="Purple" Margin="0 5"/>
             </Grid>
         </StackPanel>
