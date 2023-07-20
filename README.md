@@ -9,6 +9,7 @@ Material Design: Template for visual adjustment of the application interfaces.
 FluentValidation: Used to validate the binding objects of the ViewModel.
 
 **Items to be developed:**
+
 IOC
 Infrastructure
 EntityFramework
