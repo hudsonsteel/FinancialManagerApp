@@ -3,11 +3,136 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FinancialManager.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:controls="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             Background="White"
+             xmlns:vm="clr-namespace:FinancialManager.ViewModels">
+    <UserControl.Resources>
 
-        <TextBlock>CompanyDetailsView</TextBlock>
+        <Style TargetType="TextBox">
+            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignDivider}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0 8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="600"/>
+            <Setter Property="MinHeight" Value="32"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignPrimary}"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignPrimary}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+                <DataTrigger Binding="{Binding (Validation.HasError), RelativeSource={RelativeSource Self}}" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <ToolTip DataContext="{Binding PlacementTarget.(Validation.Errors)[0].ErrorContent, RelativeSource={x:Static RelativeSource.Self}}">
+                                <TextBlock Text="{Binding}" />
+                            </ToolTip>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="0 0 8 0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{DynamicResource MaterialDesignBody}"/>
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignFilledComboBox}">
+            <Setter Property="Margin" Value="0 8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <!-- Add additional setters as needed -->
+        </Style>
+        <Style TargetType="DatePicker" BasedOn="{StaticResource MaterialDesignDatePicker}">
+            <Setter Property="Margin" Value="0 8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <!-- Add additional setters as needed -->
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="10" HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0 20 0 0" Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="50px"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <controls:PackIcon Grid.Row="0" Grid.Column="0"  Kind="AccountDetails" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="16"/>
+                <TextBlock  Grid.Row="0" Grid.Column="1" Text="Company Details" VerticalAlignment="Center" FontWeight="Bold" FontSize="18"/>
+                <Border  Grid.RowSpan="1" Grid.ColumnSpan="2" BorderThickness="0 0 0 2" BorderBrush="Purple" Margin="0 5"/>
+            </Grid>
+        </StackPanel>
+
+
+        <DataGrid Grid.Row="1" ItemsSource="{Binding CompanyDtos}"
+                  AutoGenerateColumns="False" CanUserAddRows="False"
+                  HeadersVisibility="All">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
+                <DataGridTextColumn Binding="{Binding Website}" Header="Website" />
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" />
+                <DataGridTextColumn Binding="{Binding FoundedDate}" Header="FoundedDate" />
+                <DataGridTextColumn Binding="{Binding Email}" Header="Email" />
+                <DataGridTextColumn Binding="{Binding Employees}" Header="Employees" />
+                <DataGridTextColumn Binding="{Binding Industry}" Header="Industry" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock  Text="Update" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding DataContext.UpdateCompanyCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}">
+                                <materialDesign:PackIcon Kind="Update" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Delete" />
+                    </DataGridTemplateColumn.Header>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding DataContext.DeleteCompanyCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}">
+                                <materialDesign:PackIcon Kind="Delete" />
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Address" FontWeight="Bold" Margin="0 0 0 5" />
+                        <TextBox Text="{Binding Address.Street, UpdateSourceTrigger=LostFocus}" Margin="15 0 0 5" />
+                        <TextBox Text="{Binding Address.City, UpdateSourceTrigger=LostFocus}" Margin="15 0 0 5" />
+                        <TextBox Text="{Binding Address.State, UpdateSourceTrigger=LostFocus}" Margin="15 0 0 5" />
+                        <TextBox Text="{Binding Address.Country, UpdateSourceTrigger=LostFocus}" Margin="15 0 0 5" />
+                        <TextBox Text="{Binding Address.PostalCode, UpdateSourceTrigger=LostFocus}" Margin="15 0 0 5" />
+                        <TextBox Text="{Binding Address.AdditionalFields, UpdateSourceTrigger=LostFocus}" Margin="15 0 0 5" />
+                    </StackPanel>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+        </DataGrid>
     </Grid>
 </UserControl>

@@ -111,7 +111,7 @@
                  materialDesign:HintAssist.Hint="Website"
                  Text="{Binding Website, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                 MaxLength="9" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="800px"/>
+                 MaxLength="50" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" Width="800px"/>
 
         <TextBox VerticalAlignment="Center"  Margin="0 0 0 10"
                  materialDesign:HintAssist.Hint="Phone"
