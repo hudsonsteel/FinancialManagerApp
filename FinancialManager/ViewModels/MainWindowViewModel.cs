@@ -14,7 +14,7 @@ namespace FinancialManager.ViewModels
         private UserControl _currentView;
         private UserControl _userView;
         private UserControl _companyView;
-        private UserControl _addTransactionView;
+        private UserControl _transactionView;
         private UserControl _detailsTransactionView;
         private UserControl _addBankBalanceView;
         private UserControl _detailsBankBalanceView;
@@ -28,7 +28,7 @@ namespace FinancialManager.ViewModels
             LoadUserDetailsCommand = new DelegateCommand(LoadUserDetails);
             LoadCompanyCommand = new DelegateCommand(LoadCompany);
             LoadCompanyDetailsCommand = new DelegateCommand(LoadCompanyDetails);
-            LoadAddTransationCommand = new DelegateCommand(LoadAddTransation);
+            LoadAddTransationCommand = new DelegateCommand(LoadTransation);
             LoadTransationDetailsCommand = new DelegateCommand(LoadDetailsTransation);
             LoadAddBankBalanceCommand = new DelegateCommand(LoadAddBankBalance);
             LoadBankBalanceDetailsCommand = new DelegateCommand(LoadDetailsBankBalance);
@@ -78,10 +78,10 @@ namespace FinancialManager.ViewModels
             set { SetProperty(ref _companyView, value); }
         }
 
-        public UserControl AddTransactionView
+        public UserControl TransactionView
         {
-            get { return _addTransactionView; }
-            set { SetProperty(ref _addTransactionView, value); }
+            get { return _transactionView; }
+            set { SetProperty(ref _transactionView, value); }
         }
 
         public UserControl DetailsTransactionView
@@ -142,9 +142,9 @@ namespace FinancialManager.ViewModels
             CurrentView = new CompanyView();
         }
 
-        private void LoadAddTransation()
+        private void LoadTransation()
         {
-            CurrentView = new AddTransactionView();
+            CurrentView = new TransactionView();
         }
 
         private void LoadDetailsTransation()

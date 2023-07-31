@@ -8,22 +8,22 @@ namespace FinancialManager.ViewModels
 {
     public class UserDetailsViewModel : BindableBase
     {
-        private ObservableCollection<IndividualDto> individualDtos;
+        private ObservableCollection<UserDto> individualDtos;
 
-        public ObservableCollection<IndividualDto> IndividualDtos
+        public ObservableCollection<UserDto> IndividualDtos
         {
             get { return individualDtos; }
             set { SetProperty(ref individualDtos, value); }
         }
 
-        public DelegateCommand<IndividualDto> DeleteIndividualCommand { get; }
-        public DelegateCommand<IndividualDto> UpdateIndividualCommand { get; }
+        public DelegateCommand<UserDto> DeleteUserCommand { get; }
+        public DelegateCommand<UserDto> UpdateUserCommand { get; }
 
         public UserDetailsViewModel()
         {
-            IndividualDtos = new ObservableCollection<IndividualDto>()
+            IndividualDtos = new ObservableCollection<UserDto>()
             {
-                new IndividualDto()
+                new UserDto()
                 {
                     Name = "Jane Smith",
                     NIN = "987654321",
@@ -43,7 +43,7 @@ namespace FinancialManager.ViewModels
                     }
                 },
 
-                new IndividualDto()
+                new UserDto()
                 {
                     Name = "Robert Johnson",
                     NIN = "543216789",
@@ -63,7 +63,7 @@ namespace FinancialManager.ViewModels
                     }
                 },
 
-                new IndividualDto()
+                new UserDto()
                 {
                     Name = "Maria Garcia",
                     NIN = "123459876",
@@ -83,7 +83,7 @@ namespace FinancialManager.ViewModels
                     }
                 },
 
-                new IndividualDto()
+                new UserDto()
                 {
                     Name = "Alexandre Silva",
                     NIN = "456789123",
@@ -104,19 +104,19 @@ namespace FinancialManager.ViewModels
                 }
             };
 
-            DeleteIndividualCommand = new DelegateCommand<IndividualDto>(DeleteIndividual);
-            UpdateIndividualCommand = new DelegateCommand<IndividualDto>(UpdateIndividual);
+            DeleteUserCommand = new DelegateCommand<UserDto>(DeleteUser);
+            UpdateUserCommand = new DelegateCommand<UserDto>(UpdateUser);
         }
 
-        private void DeleteIndividual(IndividualDto individual)
+        private void DeleteUser(UserDto individual)
         {
             IndividualDtos.Remove(individual);
         }
 
-        private void UpdateIndividual(IndividualDto individual)
+        private void UpdateUser(UserDto individual)
         {
             // Implemente o código para enviar o objeto individual atualizado para o controlador aqui.
-            // individual contém os dados atualizados.
+            // user contém os dados atualizados.
         }
     }
 }

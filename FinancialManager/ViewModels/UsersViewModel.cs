@@ -168,7 +168,7 @@ namespace FinancialManager.ViewModels
             // Here you can implement the logic to save the data in the database
             // Use the properties Name, NIN, Phone, Email, DateOfBirth, Gender, and Nationality
             // Example:
-            // var individual = new Individual
+            // var userDto = new UserDto
             // {
             //     Name = Name,
             //     NIN = NIN,

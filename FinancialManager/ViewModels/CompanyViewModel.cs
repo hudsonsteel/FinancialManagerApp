@@ -17,6 +17,7 @@ namespace FinancialManager.ViewModels
         private string name;
         private string website;
         private string phone;
+        private long crn;
         private string email;
         private System.DateTime? foundedDate;
         private string employees;
@@ -46,6 +47,12 @@ namespace FinancialManager.ViewModels
         {
             get { return phone; }
             set { SetProperty(ref phone, value); SaveCommand.RaiseCanExecuteChanged(); }
+        }
+
+        public long CRN
+        {
+            get { return crn; }
+            set { SetProperty(ref crn, value); SaveCommand.RaiseCanExecuteChanged(); }
         }
 
         public string Email

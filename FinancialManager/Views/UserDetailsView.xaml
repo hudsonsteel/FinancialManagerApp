@@ -97,7 +97,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding DataContext.UpdateIndividualCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            <Button Command="{Binding DataContext.UpdateUserCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                     CommandParameter="{Binding}">
                                 <materialDesign:PackIcon Kind="Update" />
                             </Button>
@@ -110,7 +110,7 @@
                     </DataGridTemplateColumn.Header>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding DataContext.DeleteIndividualCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            <Button Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                     CommandParameter="{Binding}">
                                 <materialDesign:PackIcon Kind="Delete" />
                             </Button>
