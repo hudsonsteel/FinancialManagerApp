@@ -11,7 +11,7 @@ namespace FinancialManager.ViewModels
 {
     internal class UsersViewModel : BindableBase
     {
-        private readonly IndividualsViewModelValidator validator;
+        private readonly UserViewModelValidator validator;
         private AdressView _adressView;
         private ObservableCollection<ValidationResult> validation;
         private string name;
@@ -28,7 +28,7 @@ namespace FinancialManager.ViewModels
             Validation = new ObservableCollection<ValidationResult>();
             SaveCommand = new DelegateCommand(Save, CanSave);
             AdressView = new AdressView(SaveCommand);
-            validator = new IndividualsViewModelValidator();
+            validator = new UserViewModelValidator();
             Nationalities = new ObservableCollection<string>(GetNationalities());
         }
 

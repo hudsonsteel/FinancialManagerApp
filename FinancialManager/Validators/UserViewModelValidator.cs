@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace FinancialManager.Validators
 {
-    internal class IndividualsViewModelValidator : AbstractValidator<UsersViewModel>
+    internal class UserViewModelValidator : AbstractValidator<UsersViewModel>
     {
-        public IndividualsViewModelValidator()
+        public UserViewModelValidator()
         {
             RuleFor(vm => vm.Name)
                 .NotEmpty().WithMessage("Name is required.");

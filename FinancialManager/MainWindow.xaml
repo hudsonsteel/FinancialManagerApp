@@ -239,7 +239,7 @@
 
                     <MenuItem Header="New Bank" Foreground="White"
                               Template="{StaticResource Item_Template}"
-                              Command="{Binding LoadAddBankBalanceCommand}">
+                              Command="{Binding LoadBankBalanceCommand}">
 
                         <MenuItem.Icon >
                             <materialDesign:PackIcon Kind="BankAdd" 
