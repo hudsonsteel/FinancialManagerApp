@@ -15,4 +15,5 @@ namespace FinancialManager.Dtos
         public DateTime? ExpectedPaymentDate { get; set; }
         public DateTime? PaymentDate { get; set; }
     }
+
 }
