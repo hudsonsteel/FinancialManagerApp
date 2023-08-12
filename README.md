@@ -28,6 +28,7 @@ Note: I will update as development progresses.
 Home: Provide an overview of the system and its purpose.
 
 **Contacts:**
+
 User: Register user with personal information and address.
 
 Details: List the registered user and allow for deletion or updating.
